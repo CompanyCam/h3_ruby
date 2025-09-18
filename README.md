@@ -1,5 +1,7 @@
 # H3 Ruby
 
+📢 **LOOKING FOR A NEW MAINTAINER**
+
 ![h3](https://user-images.githubusercontent.com/98526/50283275-48177300-044d-11e9-8337-eba8d3cc88a2.png)
 
 ![Build Status](https://github.com/seanhandley/h3_ruby/actions/workflows/ruby_ci.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/seanhandley/h3_ruby/badge.svg?branch=master)](https://coveralls.io/github/seanhandley/h3_ruby?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/d253207a3307cad4e4c9/maintainability)](https://codeclimate.com/github/seanhandley/h3_ruby/maintainability) [![Gem Version](https://badge.fury.io/rb/h3.svg)](https://badge.fury.io/rb/h3)
