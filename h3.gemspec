@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email    = "sean.handley@gmail.com"
 
   spec.required_ruby_version = ">= 2.5"
-  spec.files = `git ls-files --recurse-submodules`.split("\n")
+  spec.files = Dir["lib/**/*", "LICENSE", "README.md"]
 
   spec.add_runtime_dependency "ffi", "~> 1.9"
   spec.add_runtime_dependency "rgeo-geojson", "~> 2.1"
@@ -20,6 +20,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.8"
   spec.add_development_dependency "yard", "~> 0.9"
-
-  spec.extensions << "ext/h3/extconf.rb"
 end
