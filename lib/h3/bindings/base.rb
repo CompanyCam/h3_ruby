@@ -5,7 +5,8 @@ module H3
     # When extended, this module sets up FFI to use the H3 C library.
     module Base
       def self.extended(base)
-        lib_path = File.expand_path(__dir__ + "/../../../ext/h3/src/lib")
+        lib_path = File.expand_path(__dir__ + "/../../../lib/h3/native")
+        lib_path = File.expand_path(__dir__ + "/../../../ext/h3/src/lib") unless Dir.exist?(lib_path)
         base.extend FFI::Library
         base.extend Gem::Deprecate
         base.include Structs
