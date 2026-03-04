@@ -5,8 +5,6 @@ module H3
     # When extended, this module sets up FFI to use the H3 C library.
     module Base
       def self.extended(base)
-        lib_path = File.expand_path(__dir__ + "/../../../lib/h3/native")
-        lib_path = File.expand_path(__dir__ + "/../../../ext/h3/src/lib") unless Dir.exist?(lib_path)
         base.extend FFI::Library
         base.extend Gem::Deprecate
         base.include Structs
@@ -14,6 +12,19 @@ module H3
         base.ffi_lib ["#{lib_path}/libh3.dylib", "#{lib_path}/libh3.so"]
         base.typedef :ulong_long, :h3_index
         base.typedef :int, :k_distance
+      end
+
+      def self.lib_path
+        arch = RbConfig::CONFIG['host_cpu']
+        native_path = File.expand_path(__dir__ + "/../../../lib/h3/native")
+
+        if arch =~ /x86_64/
+          "#{native_path}/libh3-x86_64.so"
+        elsif arch =~ /aarch64|arm64/
+          "#{native_path}/libh3-aarch64.so"
+        else
+          "libh3"
+        end
       end
 
       def attach_predicate_function(name, *args)
